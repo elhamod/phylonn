@@ -1,57 +1,19 @@
 import os
-import pickle
-from analysis.replace_codes import get_entropy_ordering
-import numpy as np
-from taming.loading_utils import load_config, load_phylovqvae, load_LSFvqvae
+from taming.loading_utils import load_config, load_model
 from taming.data.custom import CustomTest as CustomDataset
 
-import taming.constants as CONSTANTS
-from taming.models.vqgan import VQModel
 from taming.models.LSFautoencoder import LSFVQVAE
-from taming.modules.losses.lpips import LPIPS
 from taming.plotting_utils import get_fig_pth
-
-
-import matplotlib.pyplot as plt
-from mpl_toolkits.axes_grid1 import ImageGrid
 
 import torch
 
 from omegaconf import OmegaConf
 import argparse
 import tqdm
-from pathlib import Path
 import torchvision.utils as vutils
 
 
-class KeyImageHelper:
-    def __init__(self, total_num_codes, keyimagerate):
-        self.total_num_codes = total_num_codes
-        self.keyimagerate = keyimagerate
-        
-        self.update = True
-    
-    def new_update(self, i):
-        if i%self.keyimagerate == 0:
-            self.update = True
-        
-        return self.update
-        
-    def isKeyImage(self, i):
-        if self.update:
-            self.update = False
-            return True
-            
-        return False
-    
-            
-def populate_resnet_scores(resnet_model, dec_image, change):
-    if resnet_model is not None:
-        change["class"] = torch.argmax(resnet_model(dec_image), dim=1).item()
-    return change 
-
-
-def pic_morphing(model, output_dir, image_index1_, image_index2_, test_data, step=5):
+def pic_morphing(model, output_dir, image_index1_, image_index2_, test_data, step=5, device=None):
 
     base_img = test_data.data[image_index1_]['image']
     target_img = test_data.data[image_index2_]['image']   
@@ -62,10 +24,13 @@ def pic_morphing(model, output_dir, image_index1_, image_index2_, test_data, ste
     imgs = []
     with torch.no_grad():
         data1 = base_img
-        data1 = torch.tensor(data1).unsqueeze(0).permute(0, 3, 1, 2).to("cuda:0")
-        imgs.append(data1.add(1.0).div(2.0).squeeze().rot90(3, [1, 2]))
         data2 = target_img
-        data2 = torch.tensor(data2).unsqueeze(0).permute(0, 3, 1, 2).to("cuda:0")
+        data1 = torch.tensor(data1).unsqueeze(0).permute(0, 3, 1, 2)
+        data2 = torch.tensor(data2).unsqueeze(0).permute(0, 3, 1, 2)
+        if device is not None:
+            data1 = data1.cuda()
+            data2 = data2.cuda()
+        imgs.append(data1.add(1.0).div(2.0).squeeze().rot90(3, [1, 2]))
         z1,_, _ = model.image2encoding(data1)
         z2,_, _ = model.image2encoding(data2)
         for s in range(0, step):
@@ -97,7 +62,7 @@ def main(configs_yaml):
     
     # Load model
     config = load_config(yaml_path, display=False)
-    model = load_LSFvqvae(config, ckpt_path=ckpt_path, cuda=(DEVICE is not None), model_type=LSFVQVAE)
+    model = load_model(config, ckpt_path=ckpt_path, cuda=(DEVICE is not None), model_type=LSFVQVAE)
 
     for indx__ in tqdm.tqdm(range(count)):
         image_index1 = image_index1_+indx__
@@ -113,7 +78,7 @@ def main(configs_yaml):
         fig_path = get_fig_pth(ckpt_path)
         fig_path = os.path.join(str(fig_path), "translations", dataset.indx_to_label[classes[0]] + ' to ' + dataset.indx_to_label[classes[1]])
         
-        pic_morphing(model, fig_path, image_index1, image_index2, dataset, step=6)
+        pic_morphing(model, fig_path, image_index1, image_index2, dataset, step=6, device=DEVICE)
 
 
 if __name__ == "__main__":
