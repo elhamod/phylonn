@@ -71,7 +71,6 @@ def main(configs_yaml):
 
         for img_indx in [image_index1, image_index2]:
             specimen = dataset.data[img_indx]
-            
             species_index = specimen['class']
             classes.append(species_index)
     
