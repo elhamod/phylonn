@@ -75,7 +75,7 @@ python main.py --name <name> --postfix <postfix> --base <yaml file> -t True --gp
 * **postfix**: a postfix for the run's name
 * **base**: the `yaml` config file.
 
-Under `configs` directory, we have prepopulated some of the `yaml` files we have used in our own training.
+Under `configs` directory, the config file used for training with LSF is provided under the name `lsf.yaml`.
 
 ### Image translation - LSF
 
@@ -88,21 +88,18 @@ Under `analysis/configs` directory, we have prepopulated the `yaml` files we hav
 ### TSNE plots - LSF
 
 ```
-python analysis/tsneLSF.py --config analysis/configs/tsne.yaml
+python analysis/tsneLSF.py --config <yaml file>
 ```
 * **config**: the `yaml` config file.
-Under `analysis/configs` directory, we have prepopulated the `yaml` files we have used in our own experiment for generating TSNE plots under the name `tsne.yaml`.
+Under `analysis/configs` directory, the config file used for generating this plot is provided under the name `tsneLSF.yaml`.
 
 ### Heatmap of cosine distance between latent representations - LSF
 
 ```
-python analysis/heatmapLSF.py --name <name> --postfix <postfix> --base <yaml file> -t True --gpus <comma-separated GPU indices>
+python analysis/heatmapLSF.py --config <yaml file>
 ```
-* **prefix** : The path to where the model will be saved
-* **name** : run name
-* **postfix**: a postfix for the run's name
-* **base**: the `yaml` config file.
-Under `configs` directory, the config file used for generating this plot is provided under the name `lsf_inference.yaml`.
+* **config**: the `yaml` config file.
+Under `analysis/configs` directory, the config file used for generating this plot is provided under the name `heatmapLSF.yaml`.
 
 ## Training on custom data
 
