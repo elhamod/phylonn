@@ -3,11 +3,12 @@ yaml_path: /fastscratch/elhamod/logs/PhyloNN/configs/2023-01-15T00-45-57-project
 
 DEVICE: 0
 
-image_index1: 40 # index of first image in source in dataset
-image_index2: 734 # index of first image in target in dataset
-count: 15 # number of consequitive images to run the script for
+# image_index1: 40 # index of first image in source in dataset
+# image_index2: 734 # index of first image in target in dataset
+# count: 1 # number of consequitive images to run the script for
 
 size: 256
+file_list_path_interest: "/fastscratch/elhamod/data/Fish/survey folder/images.txt"
 file_list_path: "/fastscratch/elhamod/data/Fish/fish_train.txt"
 
 show_only_key_imgs: True # whether to only show images at transitions.

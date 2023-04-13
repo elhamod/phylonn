@@ -1,5 +1,6 @@
 #based on https://github.com/CompVis/taming-transformers
 
+import os
 from torch.utils.data import Dataset
 from scripts.data.base import ImagePaths
 import scripts.constants as CONSTANTS
@@ -21,7 +22,8 @@ class CustomTrain(CustomBase):
     def __init__(self, size, training_images_list_file, horizontalflip=False, random_contrast=False, shiftrotate=False, add_labels=False, unique_skipped_labels=[]):
         super().__init__()
         with open(training_images_list_file, "r") as f:
-            paths = sorted(f.read().splitlines())
+            paths = sorted(f.read().splitlines(), key=lambda x: os.path.basename(x))
+        self.paths = paths
 
         labels=None
         if add_labels:
