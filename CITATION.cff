@@ -1,0 +1,85 @@
+abstract: "One of the grand challenges in biology is to find features of organisms--or traits--that define groups of organisms, their genetic and developmental underpinnings, and their interactions with environmental selection pressures. Traits can be physiological, morphological, and/or behavioral (e.g., beak color, stripe pattern, and fin curvature) and are integrated products of genes and the environment. The analysis of traits is critical for predicting the effects of environmental change or genetic manipulation, and to understand the process of evolution. For example, discovering traits that are heritable across individuals, or across species on the tree of life (also referred to as the phylogeny), can identify features useful for individual recognition or species classification, respectively, and is a starting point for linking traits to underlying genetic factors. Traits with such genetic or phylogenetic signal, termed evolutionary traits, are of great interest to biologists, as the history of genetic ancestry captured by such traits can guide our understanding of how organisms vary and evolve. This understanding enables tasks such as estimating the morphological features of ancestors, how they have responded to environmental changes, or even predicting the potential future course of trait changes. However, the measurement of traits is not straightforward and often relies on subjective and labor-intensive human expertise and definitions. Hence, trait discovery has remained a highly label-scarce problem, hindering rapid scientific advancement."
+authors: Mohannad Elhamod, Mridul Khurana, and Harish Babu Manogaran
+- family-names: Elhamod
+  given-names: "Mohannad"
+  orcid: "https://orcid.org/0000-0002-2383-947X"
+- family-names: Khurana
+  given-names: "Mridul"
+  orcid: "https://orcid.org/0009-0003-9346-3206"
+- family-names: Manogaran
+  given-names: "Harish Babu"
+  orcid: "https://orcid.org/<ORCID #>"
+- family-names: Karpatne
+  given-names: "Anuj"
+  orcid: "https://orcid.org/0000-0003-1647-3534"
+cff-version: 1.2.0
+date-released: "2025-12-DD" # Set date when ready for release
+identifiers:
+  - description: "The GitHub release URL of tag v1.0.0."
+    type: url
+    value: "https://github.com/elhamod/phylonn/releases/tag/v1.0.0"
+  - description: "The GitHub URL of the commit tagged with v1.0.0."
+    type: url
+    value: "https://github.com/elhamod/phylonn/tree/<commit-hash>" # Update on release
+keywords:
+  - "imageomics"
+  - "computer vision"
+  - "neural networks"
+  - "phylogeny"
+  - "morphology"
+  - "knowledge-guided machine learning"
+  - "biology"
+  - "traits"
+  - "trait discovery"
+  - "evolution"
+license:
+message: "If you find this software helpful in your research, please cite both the software and our paper."
+repository-code: "https://github.comelhamod/phylonn"
+title: "Discovering Novel Biological Traits From Images Using Phylogeny-Guided Neural Networks"
+version: 1.0.0
+# doi: <DOI from Zenodo>    # version agnostic DOI, to be added on release
+type: software
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Elhamod
+      given-names: "Mohannad"
+    - family-names: Khurana
+      given-names: "Mridul"
+    - family-names: Manogaran
+      given-names: "Harish Babu"
+    - family-names: Uyeda
+      given-names: "Josef C."
+    - family-names: Balk
+      given-names: "Meghan A."
+    - family-names: Dahdul
+      given-names: "Wasila"
+    - family-names: Bakiş
+      given-names: Yasin
+    - family-names: Bart
+      given-names: "Henry L."
+    - family-names: Mabee
+      given-names: "Paula M."
+    - family-names: Lapp
+      given-names: Hilmar
+    - family-names: Balhoff
+      given-names: "James P."
+    - family-names: Charpentier
+      given-names: "Caleb"
+    - family-names: Carlyn
+      given-names: David
+    - family-names: Chao
+      given-names: "Wei-Lun"
+    - family-names: Stewart
+      given-names: "Charles V."
+    - family-names: Rubenstein
+      given-names: "Daniel I."
+    - family-names: "Berger-Wolf"
+      given-names: "Tanya"
+    - family-names: Karpatne
+      given-names: "Anuj"
+  title: "Discovering Novel Biological Traits From Images Using Phylogeny-Guided Neural Networks (KDD '23)"
+  year: 2023
+  journal: "Proceedings of the 29th ACM SIGKDD Conference on Knowledge Discovery and Data Mining"
+  doi: 10.1145/3580305.3599808
+  
