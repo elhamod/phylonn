@@ -1,5 +1,5 @@
 abstract: "One of the grand challenges in biology is to find features of organisms--or traits--that define groups of organisms, their genetic and developmental underpinnings, and their interactions with environmental selection pressures. Traits can be physiological, morphological, and/or behavioral (e.g., beak color, stripe pattern, and fin curvature) and are integrated products of genes and the environment. The analysis of traits is critical for predicting the effects of environmental change or genetic manipulation, and to understand the process of evolution. For example, discovering traits that are heritable across individuals, or across species on the tree of life (also referred to as the phylogeny), can identify features useful for individual recognition or species classification, respectively, and is a starting point for linking traits to underlying genetic factors. Traits with such genetic or phylogenetic signal, termed evolutionary traits, are of great interest to biologists, as the history of genetic ancestry captured by such traits can guide our understanding of how organisms vary and evolve. This understanding enables tasks such as estimating the morphological features of ancestors, how they have responded to environmental changes, or even predicting the potential future course of trait changes. However, the measurement of traits is not straightforward and often relies on subjective and labor-intensive human expertise and definitions. Hence, trait discovery has remained a highly label-scarce problem, hindering rapid scientific advancement."
-authors: Mohannad Elhamod, Mridul Khurana, and Harish Babu Manogaran
+authors:
 - family-names: Elhamod
   given-names: "Mohannad"
   orcid: "https://orcid.org/0000-0002-2383-947X"
@@ -34,7 +34,7 @@ keywords:
   - "evolution"
 license:
 message: "If you find this software helpful in your research, please cite both the software and our paper."
-repository-code: "https://github.comelhamod/phylonn"
+repository-code: "https://github.com/elhamod/phylonn"
 title: "Discovering Novel Biological Traits From Images Using Phylogeny-Guided Neural Networks"
 version: 1.0.0
 # doi: <DOI from Zenodo>    # version agnostic DOI, to be added on release
@@ -78,8 +78,7 @@ preferred-citation:
       given-names: "Tanya"
     - family-names: Karpatne
       given-names: "Anuj"
-  title: "Discovering Novel Biological Traits From Images Using Phylogeny-Guided Neural Networks (KDD '23)"
+  title: "Discovering Novel Biological Traits From Images Using Phylogeny-Guided Neural Networks"
   year: 2023
-  journal: "Proceedings of the 29th ACM SIGKDD Conference on Knowledge Discovery and Data Mining"
+  journal: "Proceedings of the 29th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '23)"
   doi: 10.1145/3580305.3599808
-  
